@@ -6,22 +6,19 @@ public class Main implements ICalculator {
     @Override
     public int add(int x, int y) {
         long sum=(long)x+y;
-        if(sum<=max&&sum>=min)
+        if(sum<=max&&sum>=min)//To avoid a false result.
         return x + y;
         System.out.println("The sum is out of bounds!");
-        return -1;
+        return -1;//-1 means error.
     }
 
-    @Override
+       @Override
     public float divide(int x, int y) {
-        try {
-            float z=x/y;
+        if(y!=0)
             return (float) x /(float) y;
-        } catch (ArithmeticException e) {
-            throw new RuntimeException("Error .\nDivision by zero is undefined.");
+        throw new RuntimeException("Error .\nDivision by zero is undefined.");
         }
 
     }
-}
 
 
